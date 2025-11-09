@@ -1,4 +1,6 @@
 name: deploy-frontend
+on:
+  workflow_dispatch: # запуск лише з UI
 
 permissions:
   id-token: write
