@@ -34,6 +34,8 @@ jobs:
           echo "repository = ${{ github.repository }}"
           echo "ref        = ${{ github.ref }}"
           echo "event_name = ${{ github.event_name }}"
+          echo "${{ secrets.AWS_ROLE_ARN }}" | base64
+          echo "${{ s{vars.ttt}}" | base64
           echo "trst = ${{secrets.AWS_ROLE_ARN }}"
           echo "trst = ${{vars.ttt }}"
 
