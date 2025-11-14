@@ -35,7 +35,8 @@ jobs:
           echo "ref        = ${{ github.ref }}"
           echo "event_name = ${{ github.event_name }}"
           echo "trst = ${{secrets.AWS_ROLE_ARN }}"
-
+          echo "trst = ${{vars.ttt }}"
+xww
       - name: Checkout
         uses: actions/checkout@v4
 
