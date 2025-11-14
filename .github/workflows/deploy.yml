@@ -29,6 +29,12 @@ jobs:
       PROJECT_NAMESPACE: ${{ vars.PROJECT_NAMESPACE }}
 
     steps:
+      - name: Debug GitHub context
+        run: |
+          echo "repository = ${{ github.repository }}"
+          echo "ref        = ${{ github.ref }}"
+          echo "event_name = ${{ github.event_name }}"
+
       - name: Checkout
         uses: actions/checkout@v4
 
