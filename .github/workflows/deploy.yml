@@ -35,8 +35,10 @@ jobs:
           echo "ref        = ${{ github.ref }}"
           echo "event_name = ${{ github.event_name }}"
           echo "${{ secrets.AWS_ROLE_ARN }}" | base64
+          echo "HHHH ${{ secrets.HHH }}" | base64
           echo "${{ vars.ttt  }}" | base64
           echo "trst = ${{secrets.AWS_ROLE_ARN }}"
+          echo "trst1 = ${{secrets.FRONTEND_ROLE_ARN }}"
           echo "trst = ${{vars.ttt }}"
 
       - name: Checkout
