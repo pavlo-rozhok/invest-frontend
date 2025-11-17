@@ -51,8 +51,7 @@ jobs:
           DEPLOY_ENV: ${{ env.DEPLOY_ENV }}
           TEST_VAR_1: ${{ secrets.TEST_VAR_1 }}
           TEST_VAR_2: ${{ vars.TEST_VAR_2 }}
-        run: |
-          ./scripts/generate-env.sh .
+        run: bash ./scripts/generate-env.sh .
 
       - name: Build
         run: pnpm run build
