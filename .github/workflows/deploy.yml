@@ -29,18 +29,6 @@ jobs:
       PROJECT_NAMESPACE: ${{ vars.PROJECT_NAMESPACE }}
 
     steps:
-      - name: Debug GitHub context
-        run: |
-          echo "repository = ${{ github.repository }}"
-          echo "ref        = ${{ github.ref }}"
-          echo "event_name = ${{ github.event_name }}"
-          echo "${{ secrets.AWS_ROLE_ARN }}" | base64
-          echo "HHHH ${{ secrets.HHH }}" | base64
-          echo "${{ vars.ttt  }}" | base64
-          echo "trst = ${{secrets.AWS_ROLE_ARN }}"
-          echo "trst1 = ${{secrets.FRONTEND_ROLE_ARN }}"
-          echo "trst = ${{vars.ttt }}"
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -61,10 +49,10 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Configure AWS credentials
+      - name: Configure AWS via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::038715195430:role/invest-sandbox-frontend-deploy-role
+          role-to-assume: ${{ secrets.DEPLOY_FRONTEND_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Read SSM parameters for frontend
