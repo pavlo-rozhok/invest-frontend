@@ -64,7 +64,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.HHH }}
+          role-to-assume: arn:aws:iam::038715195430:role/invest-sandbox-frontend-deploy-role
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Read SSM parameters for frontend
